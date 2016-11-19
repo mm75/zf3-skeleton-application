@@ -23,6 +23,33 @@ return [
     'controllers' => [
         'factories' => [
             UsuariosysController::class => InvokableFactory::class,
+        ],
+        'invokables' => [
+            'usuariosys' => Controller\UsuariosysController::class
+        ]
+    ],
+    'view_manager' => [
+        'strategies' => [
+            'ViewJsonStrategy'
+        ]
+    ],
+    'doctrine' => [
+        'driver' => [
+            'application_driver' => [
+                'class' => \Doctrine\ORM\Mapping\Driver\AnnotationDriver::class,
+                'cache' => 'array',
+                'paths' => [
+                    __DIR__ . '/../src/Entity'
+                ]
+            ],
+            'orm_default' => [
+                'drivers' => [
+                    'Administrador\UsuarioSys' => 'application_driver'
+                ]
+            ]
+        ],
+        'fixtures' => [
+            'UsuarioSysFixture' => __DIR__ . '/../src/Fixture'
         ]
     ]
 ];

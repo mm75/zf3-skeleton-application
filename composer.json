@@ -21,6 +21,10 @@
         "zendframework/zend-psr7bridge": "^0.2.2",
         "doctrine/doctrine-orm-module": "dev-master"
     },
+    "require-dev": {
+        "codeedu/zend-doctrine-fixture": "0.0.1",
+        "fzaninotto/faker": "^1.6"
+    },
     "autoload": {
         "psr-4": {
             "Application\\": "module/Application/src/",
