@@ -18,11 +18,13 @@
         "zfcampus/zf-development-mode": "^3.0",
         "zendframework/zend-json": "^3.0",
         "zendframework/zend-mvc-console": "^1.1.10",
-        "zendframework/zend-psr7bridge": "^0.2.2"
+        "zendframework/zend-psr7bridge": "^0.2.2",
+        "doctrine/doctrine-orm-module": "dev-master"
     },
     "autoload": {
         "psr-4": {
-            "Application\\": "module/Application/src/"
+            "Application\\": "module/Application/src/",
+            "Administrador\\": "module/Administrador/src/"
         }
     },
     "autoload-dev": {
