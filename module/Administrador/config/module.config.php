@@ -3,40 +3,33 @@
 namespace Administrador;
 
 use \Administrador\Controller\UsuariosysController;
-use \Zend\ServiceManager\Factory\InvokableFactory;
+use \Doctrine\ORM\Mapping\Driver\AnnotationDriver;
+use \Zend\Router\Http\Segment;
 
 return [
     'router' => [
         'routes' => [
             'administrador' => [
-                'type' => 'segment',
+                'type' => Segment::class,
                 'options' => [
                     'route' => '/administrador/[:controller[/:id]]',
                     'constraints' => [
                         'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id' => '[0-9]+',
                     ]
-                ],
-            ],
-        ],
-    ],
-    'controllers' => [
-        'factories' => [
-            UsuariosysController::class => InvokableFactory::class,
-        ],
-        'invokables' => [
-            'usuariosys' => Controller\UsuariosysController::class
+                ]
+            ]
         ]
     ],
-    'view_manager' => [
-        'strategies' => [
-            'ViewJsonStrategy'
+    'controllers' => [
+        'aliases' => [
+            'usuariosys' => UsuariosysController::class
         ]
     ],
     'doctrine' => [
         'driver' => [
             'application_driver' => [
-                'class' => \Doctrine\ORM\Mapping\Driver\AnnotationDriver::class,
+                'class' => AnnotationDriver::class,
                 'cache' => 'array',
                 'paths' => [
                     __DIR__ . '/../src/Entity'

@@ -16,6 +16,9 @@ class UsuarioSysFixture implements FixtureInterface
 
         $usuarioSys = new UsuarioSys();
         $usuarioSys->setNome($faker->name);
+        $usuarioSys->setSenha($faker->password);
+        $usuarioSys->setUsuario($faker->userName);
+        $usuarioSys->setAtivo(true);
 
         $manager->persist($faker->name);
         $manager->flush();

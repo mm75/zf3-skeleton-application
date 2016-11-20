@@ -5,32 +5,30 @@ namespace Administrador\Repository;
 /**
  * Repositório responsável por centralizar os comandos DQL.
  *
- * PHP Version 5.4.0
+ * PHP Version 5.6.0
  *
  * @category Repository
  * @package  Administrador
- * @author   Alessando Rodrigues <alessandro@inovadora.com.br>
- * @author   Davi Juliano Guindani <davi@inovadora.com.br>
- * @author   Edivilson Dalacosta <edivilson@inovadora.com.br>
+ * @author Jackson Veroneze <jackson@inovadora.com.br>
  * @license  http://inovadora.com.br/licenca  Inovadora
  * @link     #
+ * @version 0.0.1
  */
-use \Core\Repository\AbstractRepository;
+use \Doctrine\ORM\EntityRepository;
 
 /**
  * Repositório responsável por centralizar os comandos DQL.
  *
- * PHP Version 5.4.0
+ * PHP Version 5.6.0
  *
  * @category Repository
  * @package  Administrador
- * @author   Alessando Rodrigues <alessandro@inovadora.com.br>
- * @author   Davi Juliano Guindani <davi@inovadora.com.br>
- * @author   Edivilson Dalacosta <edivilson@inovadora.com.br>
+ * @author Jackson Veroneze <jackson@inovadora.com.br>
  * @license  http://inovadora.com.br/licenca  Inovadora
  * @link     #
+ * @version 01.00.000
  */
-class UsuarioSysRepository extends AbstractRepository
+class UsuarioSysRepository extends EntityRepository
 {
     
 }

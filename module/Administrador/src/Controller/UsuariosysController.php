@@ -3,35 +3,21 @@
 namespace Administrador\Controller;
 
 use \Zend\Mvc\Controller\AbstractRestfulController;
+use \Zend\View\Model\JsonModel;
 
 class UsuariosysController extends AbstractRestfulController
 {
 
-    public function create($data)
-    {
-        return new \Zend\View\Model\JsonModel(parent::create($data));
-    }
+    private $service = null;
 
-    public function delete($id)
+    public function __construct($service = null)
     {
-        parent::delete($id);
-    }
-
-    public function get($id)
-    {
-        parent::get($id);
+        $this->service = $service;
     }
 
     public function getList()
     {
-         return new \Zend\View\Model\JsonModel(parent::getList($data));
-        
-        parent::getList();
-    }
-
-    public function update($id, $data)
-    {
-        parent::update($id, $data);
+        return new JsonModel(parent::getList());
     }
 
 }
