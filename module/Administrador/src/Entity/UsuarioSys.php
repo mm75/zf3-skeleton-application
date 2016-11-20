@@ -13,9 +13,23 @@ namespace Administrador\Entity;
  * @license  http://inovadora.com.br/licenca  Inovadora
  * @link     #
  * @version 0.0.1
+ */
+use \Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Entidade responsável por armazenar os dados da tabela.
+ *
+ * PHP Version 5.6.0
+ *
+ * @category Entity
+ * @package  Administrador
+ * @author Jackson Veroneze <jackson@inovadora.com.br>
+ * @license  http://inovadora.com.br/licenca  Inovadora
+ * @link     #
+ * @version 0.0.1
  *
  *
- * @ORM\Table(name="gemus.usuario_sys",
+ * @ORM\Table(name="usuario_sys",
  *   uniqueConstraints={@ORM\UniqueConstraint(columns={"id"})},
  *   uniqueConstraints={@ORM\UniqueConstraint(columns={"usuario"})}
  * ),

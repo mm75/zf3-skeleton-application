@@ -9,3 +9,5 @@ phpunit.xml
 ubuntu-xenial-16.04-cloudimg-console.log
 /nbproject/private/
 /nbproject
+data/DoctrineORMModule/Proxy
+!data/DoctrineORMModule/Proxy/.gitkeep

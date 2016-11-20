@@ -20,7 +20,7 @@ class UsuarioSysFixture implements FixtureInterface
         $usuarioSys->setUsuario($faker->userName);
         $usuarioSys->setAtivo(true);
 
-        $manager->persist($faker->name);
+        $manager->persist($usuarioSys);
         $manager->flush();
     }
 

@@ -37,7 +37,7 @@ return [
             ],
             'orm_default' => [
                 'drivers' => [
-                    'Administrador\UsuarioSys' => 'application_driver'
+                    'Administrador\Entity\UsuarioSys' => 'application_driver'
                 ]
             ]
         ],
