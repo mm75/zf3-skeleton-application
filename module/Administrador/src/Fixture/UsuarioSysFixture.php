@@ -14,13 +14,16 @@ class UsuarioSysFixture implements FixtureInterface
     {
         $faker = Factory::create();
 
-        $usuarioSys = new UsuarioSys();
-        $usuarioSys->setNome($faker->name);
-        $usuarioSys->setSenha($faker->password);
-        $usuarioSys->setUsuario($faker->userName);
-        $usuarioSys->setAtivo(true);
+        for ($i = 0; $i < 10; $i++) {
+            $usuarioSys = new UsuarioSys();
+            $usuarioSys->setNome($faker->name);
+            $usuarioSys->setSenha($faker->password);
+            $usuarioSys->setUsuario(substr($faker->userName, 0, 10));
+            $usuarioSys->setAtivo(true);
 
-        $manager->persist($usuarioSys);
+            $manager->persist($usuarioSys);
+        }
+
         $manager->flush();
     }
 

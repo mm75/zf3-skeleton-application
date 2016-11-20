@@ -46,4 +46,9 @@ class UsuarioSysService
         $this->entityManager = $entityManager;
     }
 
+    public function findAll()
+    {
+        return $this->entityManager->getRepository(\Administrador\Entity\UsuarioSys::class)->findAll();
+    }
+
 }
