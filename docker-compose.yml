@@ -1,12 +1,7 @@
-web:
-  image: jackson/nginx
+zf:
+  build: .
+  dockerfile: Dockerfile
   ports:
-    - "4443:443"
+   - "8080:80"
   volumes:
-    - .:/usr/share/nginx/html
-  links:
-    - php
-php:
-  image: jackson/fpm
-  volumes:
-    - .:/usr/share/nginx/html
+   - .:/var/www

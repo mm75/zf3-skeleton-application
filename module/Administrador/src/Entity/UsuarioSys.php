@@ -3,7 +3,7 @@
 namespace Administrador\Entity;
 
 /**
- * Entidade responsável por armazenar os dados da tabela.
+ * Classe responsável entidade "UsuarioSys".
  *
  * PHP Version 5.6.0
  *
@@ -17,7 +17,7 @@ namespace Administrador\Entity;
 use \Doctrine\ORM\Mapping as ORM;
 
 /**
- * Entidade responsável por armazenar os dados da tabela.
+ * Classe responsável entidade "UsuarioSys".
  *
  * PHP Version 5.6.0
  *
@@ -28,7 +28,7 @@ use \Doctrine\ORM\Mapping as ORM;
  * @link     #
  * @version 0.0.1
  *
- *
+ * 
  * @ORM\Table(name="usuario_sys",
  *   uniqueConstraints={@ORM\UniqueConstraint(columns={"id"})},
  *   uniqueConstraints={@ORM\UniqueConstraint(columns={"usuario"})}

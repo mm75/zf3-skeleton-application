@@ -3,8 +3,10 @@
 namespace Administrador\Service;
 
 /**
- * Service responsável por armazenar as regras de negócio.
- *
+ * Classe responsável por armazenas as regras de negócio.
+ * No construtor do mesmo é injetado a instância do EntityManager 
+ * para manipulação dos dados do banco e o repository para acesso aos dados.
+ * 
  * PHP Version 5.6.0
  *
  * @category Service
@@ -14,41 +16,7 @@ namespace Administrador\Service;
  * @link     #
  * @version 0.0.1
  */
-use \Doctrine\ORM\EntityManager;
-
-/**
- * Service responsável por armazenar as regras de negócio.
- *
- * PHP Version 5.6.0
- *
- * @category Service
- * @package  Administrador
- * @author Jackson Veroneze <jackson@inovadora.com.br>
- * @license  http://inovadora.com.br/licenca  Inovadora
- * @link     #
- * @version 0.0.1
- */
-class UsuarioSysService
+class UsuarioSysService extends AbstractService
 {
-
-    /**
-     * @var EntityManager 
-     */
-    private $entityManager = null;
-
-    /**
-     * Método construtor do service.
-     * 
-     * @param EntityManager $entityManager
-     */
-    public function __construct(EntityManager $entityManager)
-    {
-        $this->entityManager = $entityManager;
-    }
-
-    public function findAll()
-    {
-        return $this->entityManager->getRepository(\Administrador\Entity\UsuarioSys::class)->findAll();
-    }
-
+    
 }

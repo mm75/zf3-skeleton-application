@@ -3,7 +3,7 @@
 namespace Administrador\Repository;
 
 /**
- * Classe responsável pelo repositório "UsuarioSysRepository".
+ * Classe responsável pelo repositório.
  *
  * PHP Version 5.6.0
  *
@@ -17,7 +17,7 @@ namespace Administrador\Repository;
 use \Doctrine\ORM\EntityRepository;
 
 /**
- * Classe responsável pelo repositório "UsuarioSysRepository".
+ * Classe responsável pelo repositório.
  *
  * PHP Version 5.6.0
  *
@@ -28,7 +28,7 @@ use \Doctrine\ORM\EntityRepository;
  * @link     #
  * @version 0.0.1
  */
-class UsuarioSysRepository extends EntityRepository
+abstract class AbstractRepository extends EntityRepository
 {
     
 }

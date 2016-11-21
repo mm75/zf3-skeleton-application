@@ -2,6 +2,19 @@
 
 namespace Administrador;
 
+/**
+ * Arquivo responsável por toda configuração do módulo. 
+ * É nele que registramos as rotas de acesso, os controllers do módulos e etc.
+ *
+ * PHP Version 5.6.0
+ *
+ * @category Structure
+ * @package  Administrador
+ * @author Jackson Veroneze <jackson@inovadora.com.br>
+ * @license  http://inovadora.com.br/licenca  Inovadora
+ * @link     #
+ * @version 0.0.1
+ */
 use \Administrador\Controller\UsuariosysController;
 use \Doctrine\ORM\Mapping\Driver\AnnotationDriver;
 use \Zend\Router\Http\Segment;
