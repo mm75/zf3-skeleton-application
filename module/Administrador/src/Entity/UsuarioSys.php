@@ -48,88 +48,88 @@ class UsuarioSys
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $_id;
+    private $id;
 
     /**
      * @var string
      * 
      * @ORM\Column(name="usuario", type="string", length=10, nullable=false)
      */
-    private $_usuario;
+    private $usuario;
 
     /**
      * @var string
      * 
      * @ORM\Column(name="nome", type="string", length=50, nullable=true)
      */
-    private $_nome;
+    private $nome;
 
     /**
      * @var string
      * 
      * @ORM\Column(name="senha", type="string", length=100, nullable=true)
      */
-    private $_senha;
+    private $senha;
 
     /**
      * @var boolean
      * 
      * @ORM\Column(name="ativo", type="boolean", nullable=true)
      */
-    private $_ativo;
+    private $ativo;
 
     public function getId()
     {
-        return $this->_id;
+        return $this->id;
     }
 
     public function getUsuario()
     {
-        return $this->_usuario;
+        return $this->usuario;
     }
 
     public function getNome()
     {
-        return $this->_nome;
+        return $this->nome;
     }
 
     public function getSenha()
     {
-        return $this->_senha;
+        return $this->senha;
     }
 
     public function getAtivo()
     {
-        return $this->_ativo;
+        return $this->ativo;
     }
 
     public function setId($id)
     {
-        $this->_id = $id;
+        $this->id = $id;
         return $this;
     }
 
     public function setUsuario($usuario)
     {
-        $this->_usuario = $usuario;
+        $this->usuario = $usuario;
         return $this;
     }
 
     public function setNome($nome)
     {
-        $this->_nome = $nome;
+        $this->nome = $nome;
         return $this;
     }
 
     public function setSenha($senha)
     {
-        $this->_senha = $senha;
+        $this->senha = $senha;
         return $this;
     }
 
     public function setAtivo($ativo)
     {
-        $this->_ativo = $ativo;
+        $this->ativo = $ativo;
         return $this;
     }
 
