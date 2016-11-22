@@ -81,7 +81,7 @@ class AbstractController extends AbstractRestfulController
     {
         $listUsers = $this->service->findAll();
 
-        return new JsonModel($this->serializer->toArray($listUsers, 'json'));
+        return new JsonModel($this->serializer->toArray($listUsers));
     }
 
     /**
@@ -99,7 +99,7 @@ class AbstractController extends AbstractRestfulController
 
         $result = $this->service->save($values);
 
-       return new JsonModel($this->serializer->serialize($values, 'json'));
+        return new JsonModel($this->serializer->serialize($values, 'json'));
     }
 
 }

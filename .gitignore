@@ -6,6 +6,7 @@ vendor/
 data/cache/*
 !data/cache/.gitkeep
 phpunit.xml
+composer.lock
 ubuntu-xenial-16.04-cloudimg-console.log
 /nbproject
 .idea/

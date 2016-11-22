@@ -1,0 +1,17 @@
+<?php
+
+return [
+    'doctrine' => [
+        'connection' => [
+            'orm_default' => [
+                'params' => [
+                    'host' => 'localhost',
+                    'port' => '5432',
+                    'user' => 'postgres',
+                    'password' => 'postgres',
+                    'dbname' => 'dbname'
+                ]
+            ]
+        ]
+    ]
+];

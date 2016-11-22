@@ -16,6 +16,8 @@ namespace Administrador;
  * @version 0.0.1
  */
 use \Administrador\Controller\UsuariosysController;
+use \Administrador\Middleware\Factory\IndexMiddlewareFactory;
+use \Administrador\Middleware\IndexMiddleware;
 use \Doctrine\ORM\Mapping\Driver\AnnotationDriver;
 use \Zend\Router\Http\Segment;
 
@@ -29,10 +31,18 @@ return [
                     'constraints' => [
                         'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id' => '[0-9]+'
+                    ],
+                    'defaults' => [
+                        'middleware' => IndexMiddleware::class,
                     ]
                 ]
             ]
         ]
+    ],
+    'service_manager' => [
+        'factories' => [
+            IndexMiddleware::class => IndexMiddlewareFactory::class,
+        ],
     ],
     'controllers' => [
         'aliases' => [
