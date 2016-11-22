@@ -28,7 +28,7 @@ return [
                     'route' => '/administrador/[:controller[/:id]]',
                     'constraints' => [
                         'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'id' => '[0-9]+',
+                        'id' => '[0-9]+'
                     ]
                 ]
             ]

@@ -57,8 +57,9 @@ class UsuariosysControllerFactory implements FactoryInterface
         try {
             $serializer = SerializerBuilder::create()->build();
             $service = $container->get(UsuarioSysService::class);
+            $filter = new \Administrador\InputFilter\UsuarioSysFilter();
 
-            return new UsuariosysController($service, $serializer);
+            return new UsuariosysController($service, $serializer, $filter);
         } catch (ServiceNotFoundException $exc) {
             throw $exc;
         } catch (ServiceNotCreatedException $exc) {

@@ -38,7 +38,7 @@ use \Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="\Administrador\Repository\UsuarioSysRepository")
  * @ORM\HasLifecycleCallbacks
  */
-class UsuarioSys
+class UsuarioSys extends AbstractEntity
 {
 
     /**

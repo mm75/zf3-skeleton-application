@@ -20,7 +20,10 @@ namespace Administrador\Controller;
  */
 use \Administrador\Service\AbstractService;
 use \JMS\Serializer\Serializer;
+use \Zend\Hydrator\ClassMethods;
+use \Zend\InputFilter\InputFilter;
 use \Zend\Mvc\Controller\AbstractRestfulController;
+use \Zend\View\Model\JsonModel;
 
 /**
  * Classe responsável pelo controller.
@@ -52,15 +55,21 @@ class AbstractController extends AbstractRestfulController
     private $serializer = null;
 
     /**
+     * @var InputFilter
+     */
+    private $inputFilter = null;
+
+    /**
      * Método construtor do controller.
      * 
      * @param AbstractService $service
      * @param Serializer $serializer
      */
-    public function __construct(AbstractService $service, Serializer $serializer)
+    public function __construct(AbstractService $service, Serializer $serializer, InputFilter $inputFilter)
     {
         $this->service = $service;
         $this->serializer = $serializer;
+        $this->inputFilter = $inputFilter;
     }
 
     /**
@@ -72,13 +81,25 @@ class AbstractController extends AbstractRestfulController
     {
         $listUsers = $this->service->findAll();
 
-        $str = $this->serializer->serialize($listUsers, 'json');
+        return new JsonModel($this->serializer->toArray($listUsers, 'json'));
+    }
 
-        $this->response->getHeaders()->addHeaderLine('Content-Type', 'text/xml; charset=utf-8');
-        $this->response->getHeaders()->addHeaderLine('Content-Type', 'application/json; charset=utf-8');
-        $this->response->setContent($str);
+    /**
+     * Método responsável por criar um registro.
+     * 
+     * @return mixed
+     */
+    public function create($data)
+    {
+        $dataFilter = $this->inputFilter->setData($data)->getValues();
 
-        return $this->response;
+        $entityName = $this->service->repository->getClassName();
+
+        $values = (new ClassMethods())->hydrate($dataFilter, new $entityName);
+
+        $result = $this->service->save($values);
+
+       return new JsonModel($this->serializer->serialize($values, 'json'));
     }
 
 }
