@@ -2,27 +2,24 @@
 
 namespace Administrador\Middleware;
 
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
-use Zend\Diactoros\Response\HtmlResponse;
-use Zend\Mvc\View\Http\ViewManager;
-use Zend\View\Renderer\PhpRenderer;
+use \Exception;
+use \Firebase\JWT\JWT;
+use \Psr\Http\Message\ResponseInterface;
+use \Psr\Http\Message\ServerRequestInterface;
+use \Zend\Diactoros\Response\HtmlResponse;
 
 class IndexMiddleware
 {
 
-    public function __construct(PhpRenderer $renderer, ViewManager $view)
-    {
-        $this->renderer = $renderer;
-        $this->view = $view;
-    }
-
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response)
     {
-        if (empty($request->getHeader('Authorization'))) {
-            $var = ['message' => 'Acesso não autorizado'];
+        $authorizationRaw = $request->getHeaderLine('Authorization');
+        $authorizationFilter = filter_var($authorizationRaw, FILTER_SANITIZE_STRING);
 
-            return new HtmlResponse(json_encode($var), 401, ['Content-Type' => 'application/json;charset=utf-8']);
+        try {
+            JWT::decode($authorizationFilter, JWT_TOKEN, ['HS256']);
+        } catch (Exception $exc) {
+            return new HtmlResponse(\json_encode([$exc->getMessage()]), 401, ['Content-Type' => 'application/json;charset=utf-8']);
         }
     }
 

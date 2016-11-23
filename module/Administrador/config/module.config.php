@@ -15,15 +15,26 @@ namespace Administrador;
  * @link     #
  * @version 0.0.1
  */
+use \Administrador\Controller\RequestTokenController;
 use \Administrador\Controller\UsuariosysController;
 use \Administrador\Middleware\Factory\IndexMiddlewareFactory;
 use \Administrador\Middleware\IndexMiddleware;
 use \Doctrine\ORM\Mapping\Driver\AnnotationDriver;
+use \Zend\Router\Http\Literal;
 use \Zend\Router\Http\Segment;
 
 return [
     'router' => [
         'routes' => [
+            'token' => [
+                'type' => Literal::class,
+                'options' => [
+                    'route' => '/auth',
+                    'defaults' => [
+                        'controller' => RequestTokenController::class,
+                    ]
+                ]
+            ],
             'administrador' => [
                 'type' => Segment::class,
                 'options' => [
@@ -39,15 +50,15 @@ return [
             ]
         ]
     ],
-    'service_manager' => [
-        'factories' => [
-            IndexMiddleware::class => IndexMiddlewareFactory::class,
-        ],
-    ],
     'controllers' => [
         'aliases' => [
             'usuariosys' => UsuariosysController::class
         ]
+    ],
+    'service_manager' => [
+        'factories' => [
+            IndexMiddleware::class => IndexMiddlewareFactory::class,
+        ],
     ],
     'doctrine' => [
         'driver' => [

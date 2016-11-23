@@ -35,7 +35,8 @@
         "zendframework/zend-psr7bridge": "^0.2.2",
         "doctrine/doctrine-orm-module": "dev-master",
         "doctrine/migrations": "^1.4",
-        "jms/serializer": "^1.4"
+        "jms/serializer": "^1.4",
+        "firebase/php-jwt": "^4.0"
     },
     "require-dev": {
         "codeedu/zend-doctrine-fixture": "0.0.1",

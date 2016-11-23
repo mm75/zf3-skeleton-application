@@ -18,13 +18,17 @@ namespace Administrador;
  * @link     #
  * @version 0.0.1
  */
+use \Administrador\Controller\Factory\RequestTokenControllerFactory;
 use \Administrador\Controller\Factory\UsuariosysControllerFactory;
+use \Administrador\Controller\RequestTokenController;
 use \Administrador\Controller\UsuariosysController;
 use \Administrador\Service\Factory\UsuarioSysServiceFactory;
 use \Administrador\Service\UsuarioSysService;
+use \Traversable;
 use \Zend\ModuleManager\Feature\ConfigProviderInterface;
 use \Zend\ModuleManager\Feature\ControllerProviderInterface;
 use \Zend\ModuleManager\Feature\ServiceProviderInterface;
+use \Zend\ServiceManager\Config;
 
 /**
  * Classe responsável pelo carregamento de todas as classes do módulo. 
@@ -50,7 +54,7 @@ class Module implements ConfigProviderInterface, ServiceProviderInterface, Contr
      * Tamabém retorna o conteúdo do arquivo de configuração, 
      * para mesclar com as configurações do aplicativo.
      *
-     * @return array|\Traversable
+     * @return array|Traversable
      */
     public function getConfig()
     {
@@ -60,13 +64,14 @@ class Module implements ConfigProviderInterface, ServiceProviderInterface, Contr
     /**
      * Método responsável por retonar as factories dos controllers do módulo.
      *
-     * @return array|\Zend\ServiceManager\Config
+     * @return array|Config
      */
     public function getControllerConfig()
     {
         return [
             'factories' => [
-                UsuariosysController::class => UsuariosysControllerFactory::class
+                UsuariosysController::class => UsuariosysControllerFactory::class,
+                RequestTokenController::class => RequestTokenControllerFactory::class
             ]
         ];
     }
@@ -74,7 +79,7 @@ class Module implements ConfigProviderInterface, ServiceProviderInterface, Contr
     /**
      * Método responsável por retonar as factories dos serviços do módulo.
      *
-     * @return array|\Zend\ServiceManager\Config
+     * @return array|Config
      */
     public function getServiceConfig()
     {

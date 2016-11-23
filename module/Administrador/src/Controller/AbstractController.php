@@ -18,6 +18,7 @@ namespace Administrador\Controller;
  * @link     #
  * @version 0.0.1
  */
+
 use \Administrador\Service\AbstractService;
 use \JMS\Serializer\Serializer;
 use \Zend\Hydrator\ClassMethods;
@@ -65,7 +66,7 @@ class AbstractController extends AbstractRestfulController
      * @param AbstractService $service
      * @param Serializer $serializer
      */
-    public function __construct(AbstractService $service, Serializer $serializer, InputFilter $inputFilter)
+    public function __construct(AbstractService $service, Serializer $serializer, InputFilter $inputFilter = null)
     {
         $this->service = $service;
         $this->serializer = $serializer;
